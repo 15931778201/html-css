@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>111</title>
+</head>
+
+<body>
+        <style>
+                #list li {
+                    list-style-type: none;
+                    width: 100px;
+                    height: 50px;
+                    line-height: 50px;
+                    background-color: beige;
+                    text-align: center;
+                    float: left;
+                }
+    
+                #list li.current {
+                    background-color: red;
+                }
+    
+                #list li a {
+                    text-decoration: none;
+                }
+            </style>
+    
+        </head>
+    
+        <body>
+            <div id="menu">
+                <ul id="list">
+                    <li class="current">
+                        <a href="javascript:void(0)">首页</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">HTML</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">CSS</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">JavaScript</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">关于</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">帮助</a>
+                    </li>
+                </ul>
+            </div>
+    
+            <script>
+                //获取所有的li标签,
+                var liObjs = document.getElementById("list").getElementsByTagName("li");
+                //循环遍历,找到每个li中的a,注册点击事件
+                for(var i = 0; i < liObjs.length; i++) {
+                    //每个li中的a
+                    var aObj = liObjs[i].firstElementChild;
+    
+                    aObj.onclick = function() {
+                        //把这个a所在的li的所有的兄弟元素的类样式全部移除
+                        for(var j = 0; j < liObjs.length; j++) {
+                            liObjs[j].removeAttribute("class");
+                        }
+                        //当前点击的a的父级元素li(点击的这个a所在的父级元素li),设置背景颜色
+                        this.parentNode.className = "current";
+                    };
+                }
+            </script>
+    
+    
+
+    <script>
+        // var myString = 'Hello';
+        // var student = {
+        //     name: 'Tom',
+        //     age: 18
+        // };
+        // var myNameArray = ['Tom', 'Bob', 'Jim'];
+        // var myNumberArray = [10, 15, 20];
+        // var carname = 'shiyanlou';
+        // var answer = "I Love 'shiyanlou'";
+        // var x1 = 10;
+        // var x2 = 3.1415926;
+        // console.log(typeof (myString));
+        // console.log(typeof (student));
+        // console.log(typeof (x1));
+        // console.log(typeof (x2));
+        // console.log(typeof (myNameArray));
+        // console.log(typeof (myNumberArray));
+        // console.log(typeof (carname));
+        // console.log(typeof (answer));
+        // var color = ["red", "green", "blue", "yellow"];
+        // color[0]; // returns "red"
+        // color[1]; // returns "green"
+        // color[2]; // returns "blue"
+        // color[3]; // returns "yellow"
+        // color[4]; // returns undefined
+        // var student = [
+        //     ["张三", "男", "18"],
+        //     ["李四", "女", "20"]
+        // ];
+        // s[0][2]; // returns "18"
+        // var student = {
+        //     name: 'zhangsan',
+        //     age: 18,
+        //     gender: 'male',
+        //     sayHi: function () {
+        //         console.log("hi,my name is " + this.name);
+        //     }
+        // };{
+        function formatDate(d) {
+            if (!d instanceof Date) {
+                return;
+            }
+            var year = d.getFullYear(),
+                month = d.getMonth() + 1,
+                date = d.getDate(),
+                hour = d.getHours(),
+                minute = d.getMinutes(),
+                second = d.getSeconds();
+            month = month < 10 ? '0' + month : month;
+            date = date < 10 ? '0' + date : date;
+            hour = hour < 10 ? '0' + hour : hour;
+            minute = minute < 10 ? '0' + minute : minute;
+            second = second < 10 ? '0' + second : second;
+            return year + '/' + month + '/' + date + ' ' + hour + ':' + minute + ':' + second;
+        }
+        console.log(formatDate(new Date()));
+
+        var timerId = setTimeout(function () {
+            console.log('Hello shiyanlou');
+        }, 10000);
+        //clearTimeout(timerId);
+    </script>
+</body>
+
+</html>
